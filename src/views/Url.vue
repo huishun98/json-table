@@ -1,12 +1,25 @@
 <template>
   <div class="url">
     <h1>{{ queryUrl }}</h1>
-    <b-button pill variant="outline-secondary" @click="downloadJson"
+    <b-button
+      pill
+      variant="outline-secondary"
+      @click="downloadJson"
+      v-show="success"
       >Download JSON</b-button
     >
-    <b-button pill variant="outline-secondary" @click="downloadCsv"
+    <b-button
+      pill
+      variant="outline-secondary"
+      @click="downloadCsv"
+      v-show="success"
       >Download CSV</b-button
     >
+    <b-spinner
+      class="margin-top-50"
+      variant="success"
+      v-bind:class="{ 'd-none': !loading }"
+    ></b-spinner>
     <div
       v-for="(item, index) in collatedInfo"
       :key="index"
@@ -35,6 +48,8 @@ export default {
     return {
       firstLevelText: "Origin",
       downloadFileName: "json-table",
+      loading: true,
+      success: false,
       collatedInfo: [],
       jsonData: null,
     };
@@ -44,11 +59,14 @@ export default {
     axios
       .get("https://api.allorigins.win/raw?url=" + this.queryUrl)
       .then((response) => {
+        this.loading = false;
+        this.success = true;
         this.jsonData = response.data;
         this.generateData(this.firstLevelText, response.data);
         console.log(response.data);
       })
       .catch((err) => {
+        this.loading = false;
         console.log(err);
         alert("Error encountered while fetching data");
       });

@@ -8,11 +8,15 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: { name: 'Home' }
+  },
+  {
+    path: '/json-table/',
     name: 'Home',
     component: Home
   },
   {
-    path: '/:queryUrl(.*)',
+    path: '/json-table/:queryUrl(.*)',
     name: 'Url',
     component: Url,
     props: true

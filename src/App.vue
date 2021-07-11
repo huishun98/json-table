@@ -31,6 +31,10 @@
   margin-bottom: 50px;
 }
 
+.margin-top-50 {
+  margin-top: 50px;
+}
+
 .title {
   padding: 10px 20px;
   background-color: var(--secondary-color);
