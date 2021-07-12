@@ -12,6 +12,7 @@
   --vue-green-color: #42b983;
   --vue-dark-color: #2c3e50;
   --secondary-color: #6c757d;
+  --small-font-size: calc(0.7rem + 0.5vw);
 }
 
 #app {
@@ -25,10 +26,6 @@
 
 .margin-bot-10 {
   margin-bottom: 10px;
-}
-
-.margin-bot-50 {
-  margin-bottom: 50px;
 }
 
 .margin-top-50 {
@@ -53,8 +50,14 @@
   overflow-x: auto;
 }
 
+.p,
+.small-text,
+.btn.btn-outline-secondary {
+  font-size: var(--small-font-size);
+}
+
 .btn-outline-secondary {
-  margin: 20px;
+  margin: 10px 15px;
 }
 
 .pad-30 {
@@ -72,5 +75,20 @@
 .theme a.router-link-exact-active,
 .theme a:hover {
   color: var(--vue-green-color);
+}
+
+.md-margin-bot-40 {
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .p,
+  .small-text,
+  .btn.btn-outline-secondary {
+    font-size: 1rem;
+  }
+  .btn-outline-secondary {
+    margin: 20px;
+  }
 }
 </style>

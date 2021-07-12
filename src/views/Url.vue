@@ -1,30 +1,28 @@
 <template>
   <div class="url">
-    <h1>{{ queryUrl }}</h1>
-    <b-button
-      pill
-      variant="outline-secondary"
-      @click="downloadJson"
-      v-show="success"
-      >Download JSON</b-button
-    >
-    <b-button
-      pill
-      variant="outline-secondary"
-      @click="downloadCsv"
-      v-show="success"
-      >Download CSV</b-button
-    >
+    <h2 class="margin-bot-10">{{ queryUrl }}</h2>
+    <div class="margin-bot-10">
+      <b-button
+        squared
+        variant="outline-secondary"
+        @click="downloadJson"
+        v-show="success"
+        >Download JSON</b-button
+      >
+      <b-button
+        squared
+        variant="outline-secondary"
+        @click="downloadCsv"
+        v-show="success"
+        >Download CSV</b-button
+      >
+    </div>
     <b-spinner
       class="margin-top-50"
       variant="success"
       v-bind:class="{ 'd-none': !loading }"
     ></b-spinner>
-    <div
-      v-for="(item, index) in collatedInfo"
-      :key="index"
-      class="margin-bot-50"
-    >
+    <div v-for="(item, index) in collatedInfo" :key="index" class="small-text">
       <div
         class="title"
         v-bind:class="{ specialbg: item.header == firstLevelText }"

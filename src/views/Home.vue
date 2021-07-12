@@ -1,14 +1,14 @@
 <template>
   <div class="container theme">
     <h1>JSON to Table</h1>
-    <p>
-      This website transforms ugly JSON into pretty, readable tables. <br />
+    <p class="p">
+      This website transforms ugly JSON into pretty, readable tables. Best viewed on desktop.<br />
       This project is open source and the code is
       <a href="https://github.com/huishun98/json-table" target="_blank"
         >available on Github</a
       >.
     </p>
-    <p>
+    <p class="p">
       To use this tool, either: <br />
       1. Enter the JSON API endpoint in the input field below and convert, or <br />
       2. Prepend "https://huishun98.github.io/json-table/" to the JSON API endpoint and search using the web browser's address bar.
@@ -16,9 +16,8 @@
     <b-form-input
       v-model="queryUrl"
       placeholder="Enter json url"
-      class="margin-bot-10"
     ></b-form-input>
-    <b-button pill variant="outline-secondary" @click="enter">Convert</b-button>
+    <b-button squared variant="outline-secondary" @click="enter">Convert</b-button>
   </div>
 </template>
 
