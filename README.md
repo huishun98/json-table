@@ -8,7 +8,7 @@ Built using Vue.js.
 
 ## How to use
 - Visit [the site](https://huishun98.github.io/json-table/) and enter the json endpoint, or
-- Prepend https://huishun98.github.io/json-table/ to the json endpoint and search using the browser's address bar.
+- Prepend https://huishun98.github.io/json-table/ to the json endpoint and search using any web browser's address bar.
 
 ### Example
 ![Result view](https://github.com/huishun98/json-table/blob/master/src/assets/result.png)
