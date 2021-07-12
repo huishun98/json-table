@@ -1,8 +1,16 @@
 # Json to Table
 
+![Home view](https://github.com/huishun98/json-table/blob/master/src/assets/home.png)
+
+![Result view](https://github.com/huishun98/json-table/blob/master/src/assets/result.png)
+
 This website transforms ugly JSON into pretty, readable tables. The live version can be found here: https://huishun98.github.io/json-table/
 
 Built using Vue.js.
+
+## How to use
+- Visit [the site](https://huishun98.github.io/json-table/) and enter the json endpoint, or
+- Add https://huishun98.github.io/json-table/ before the json endpoint in the browser.
 
 ## Quickstart
 In the project directory, you can run:
