@@ -61,29 +61,28 @@ export default {
   },
   methods: {
     fetchData(queryUrl) {
-      this.callCount = this.callCount + 1
+      this.callCount = this.callCount + 1;
 
       axios
         .get(queryUrl)
         .then((response) => {
           this.loading = false;
           this.success = true;
-          this.callCount = 0
+          this.callCount = 0;
           this.jsonData = response.data;
           this.generateData(this.firstLevelText, response.data);
           console.log(response.data);
         })
         .catch((err) => {
-          
           if (err.status || this.callCount > 2) {
             console.log(err);
-            this.callCount = 0
+            this.callCount = 0;
             this.loading = false;
             alert("Error encountered while fetching data");
-            return
+            return;
           }
-          
-          this.fetchData("https://api.allorigins.win/raw?url=" + queryUrl)
+
+          this.fetchData("https://api.allorigins.win/raw?url=" + queryUrl);
         });
     },
     getHeaders(data) {
@@ -107,7 +106,9 @@ export default {
       }
     },
     generateData(headerParam, data) {
-      if (this.type(data) == Array) {
+      if (this.type(data) == Array && data.length == 1) {
+        this.generateData(headerParam, data[0]);
+      } else if (this.type(data) == Array) {
         let info = data;
         if (
           this.type(data[0]) == String ||
@@ -124,7 +125,6 @@ export default {
           header: headerParam,
           info: info,
         });
-        //   this.info = response.data;
       } else if (this.type(data) == Object) {
         const headers = this.getHeaders(data);
 
