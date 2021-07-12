@@ -1,6 +1,6 @@
 # Json to Table
 
-This website converts ugly JSON to pretty tables. The live version can be found here: https://huishun98.github.io/json-table/
+This website transforms ugly JSON into pretty, readable tables. The live version can be found here: https://huishun98.github.io/json-table/
 
 Built using Vue.js.
 
