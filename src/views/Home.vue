@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Json to Table</h1>
     <p>
-      This website transforms ugly JSON into pretty, readable tables :)
+      This website transforms ugly JSON into pretty, readable tables.
     </p>
     <b-form-input
       v-model="queryUrl"

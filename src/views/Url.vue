@@ -50,28 +50,42 @@ export default {
       downloadFileName: "json-table",
       loading: true,
       success: false,
+      callCount: 0,
       collatedInfo: [],
       jsonData: null,
     };
   },
 
   mounted() {
-    axios
-      .get("https://api.allorigins.win/raw?url=" + this.queryUrl)
-      .then((response) => {
-        this.loading = false;
-        this.success = true;
-        this.jsonData = response.data;
-        this.generateData(this.firstLevelText, response.data);
-        console.log(response.data);
-      })
-      .catch((err) => {
-        this.loading = false;
-        console.log(err);
-        alert("Error encountered while fetching data");
-      });
+    this.fetchData(this.queryUrl);
   },
   methods: {
+    fetchData(queryUrl) {
+      this.callCount = this.callCount + 1
+
+      axios
+        .get(queryUrl)
+        .then((response) => {
+          this.loading = false;
+          this.success = true;
+          this.callCount = 0
+          this.jsonData = response.data;
+          this.generateData(this.firstLevelText, response.data);
+          console.log(response.data);
+        })
+        .catch((err) => {
+          
+          if (err.status || this.callCount > 2) {
+            console.log(err);
+            this.callCount = 0
+            this.loading = false;
+            alert("Error encountered while fetching data");
+            return
+          }
+          
+          this.fetchData("https://api.allorigins.win/raw?url=" + queryUrl)
+        });
+    },
     getHeaders(data) {
       return Object.keys(data);
     },
