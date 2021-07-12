@@ -1,8 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container theme">
     <h1>Json to Table</h1>
     <p>
-      This website transforms ugly JSON into pretty, readable tables.
+      This website transforms ugly JSON into pretty, readable tables. <br />
+      This project is open source and the code is
+      <a href="https://github.com/huishun98/json-table" target="_blank"
+        >available on Github</a
+      >.
     </p>
     <b-form-input
       v-model="queryUrl"
@@ -29,7 +33,7 @@ export default {
       if (this.queryUrl.length > 0) {
         this.$router.push({ name: "Url", params: { queryUrl: this.queryUrl } });
       } else {
-        alert("Please enter a URL!")
+        alert("Please enter a URL!");
       }
     },
   },

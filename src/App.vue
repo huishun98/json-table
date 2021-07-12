@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container-fluid">
-    <div id="nav">
+    <div id="nav" class="theme pad-30 bold-link">
       <router-link to="/">Home</router-link>
     </div>
     <router-view />
@@ -57,16 +57,20 @@
   margin: 20px;
 }
 
-#nav {
+.pad-30 {
   padding: 30px;
 }
 
-#nav a {
+.bold-link a {
   font-weight: bold;
-  color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.theme a {
+  color: var(--vue-dark-color);
+}
+
+.theme a.router-link-exact-active,
+.theme a:hover {
+  color: var(--vue-green-color);
 }
 </style>
