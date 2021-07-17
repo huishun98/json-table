@@ -25,7 +25,7 @@
     <div v-for="(item, index) in collatedInfo" :key="index" class="small-text">
       <div
         class="title"
-        v-bind:class="{ specialbg: item.header == firstLevelText }"
+        v-bind:class="{ specialbg: item.header.includes(firstLevelText) }"
       >
         {{ item.header }}
       </div>
@@ -119,9 +119,10 @@ export default {
             };
           });
         }
+        const remark = info.length > 1000 ? `(${info.length} rows in total, showing first 1000)`: ""
         this.collatedInfo.push({
-          header: headerParam,
-          info: info,
+          header: `${headerParam} ${remark}`,
+          info: info.slice(0, 2000),
         });
       } else if (this.type(data) == Object) {
         const headers = this.getHeaders(data);
